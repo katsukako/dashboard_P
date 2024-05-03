@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「高度専門職1号(ロ)」点数计算表</title>
+    <link rel="stylesheet" href="output.css">
+<style>
+    .tooltip {
+        margin: 1rem;
+        position: relative;
+        display: inline-block;
+        border-bottom: dashed;
+        border-bottom-width: 4px;
+        border-bottom-color: #0ea5e9; /* 这个颜色值是示例，实际值可能不同，需要查看你使用的 Tailwind CSS 版本的文档 */
+
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 150px;
+        background-color: black;
+        color: #fff;
+        text-align:justify;
+        border-radius: 6px;
+        padding: 5px 5px;
+
+        /* 定位 */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+</style>
+
+</head>
+<body class="my-20 mx-20">
+    <div><h1 id="top" class="font-bold text-center text-2xl">「高度専門職1号(ロ)」点数计算表</h1></div>
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th class="px-4 py-3 text-2xl">类别</th>
+                    <th class="px-4 py-3 text-2xl">条件</th>
+                    <th class="px-4 py-3 text-2xl text-center">确认</th>
+                    <th class="px-4 py-3 text-center text-2xl">分数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 学历 -->
+                <tr class="bg-gray-50 dark:bg-gray-900">
+                    <td class="tooltip text-gray-800 group relative">
+                        学歴※
+                        <!-- 工具提示内容 -->
+                        <span
+                            class="tooltiptext">
+                            最終学歴が対象となります（例えば，博士と修士の両方の学位を有している場合は，30点です。）
+                        </span>
+                    </td>
+
+                    <td class="px-4 py-3 text-gray-800">博士学位（専門職学位を除く）</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="30"/></td>
+                    <td class="px-4 py-3 text-center">30点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-900">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">経営管理に関する専門職学位（MBA，MOT）を保有</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="25"/></td>
+                    <td class="px-4 py-3 text-center">25点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-900">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">修士又は専門職学位</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="20"/></td>
+                    <td class="px-4 py-3 text-center">20点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-900">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">大卒又はこれと同等以上の教育（博士，修士を除く）</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-900">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="tooltip text-gray-800">
+                        複数の分野における２以上の博士若しくは修士の学位又は専門職学位※
+                        <span class="tooltiptext">
+                            学位の組み合わせを問わず専攻が異なることが分かる資料（学位記又は学位証明書で確認できない場合は成績証明書）を提出して下さい。
+                        </span>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+
+
+                <!-- 职业经验 -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">職歴<br>従事しようとする業務に係る実務経験</td>
+                    <td class="px-4 py-3 text-gray-800">10年以上</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="20"/></td>
+                    <td class="px-4 py-3 text-center">20点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">7年以上10年未満</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">5年以上7年未満</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">3年以上5年未満</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+                <!-- 年収 -->
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="tooltip text-gray-800 group relative">年収
+                    <span class="tooltiptext">年収が300万円に満たないときは、他の項目の合計が70点以上でも、高度専門職外国人としては認められません。</span>
+                    </td>
+                    <td class="text-center">
+                        <div class="flex justify-between w-full">
+                            <span>30歳未満</span>
+                            <span>30歳～34歳</span>
+                            <span>35歳～39歳</span>
+                            <span>40歳以上</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"></td>
+                    <td class="px-4 py-3 text-center"></td>
+
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">1000万円以上</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                        <span class="pl-5">○</span>
+                        <span>○</span>
+                        <span>○</span>
+                        <span class="pr-5">○</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="40"/></td>
+                    <td class="px-4 py-3 text-center">40点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">900万～1000万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>○</span>
+                            <span>○</span>
+                            <span class="pr-5">○</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="35"/></td>
+                    <td class="px-4 py-3 text-center">35点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">800万～900万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>○</span>
+                            <span>○</span>
+                            <span class="pr-5">○</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="30"/></td>
+                    <td class="px-4 py-3 text-center">30点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">700万～800万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>○</span>
+                            <span>○</span>
+                            <span class="pr-5">×</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="25"/></td>
+                    <td class="px-4 py-3 text-center">25点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">600万～700万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>○</span>
+                            <span>○</span>
+                            <span class="pr-5">×</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="20"/></td>
+                    <td class="px-4 py-3 text-center">20点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">500万～600万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>○</span>
+                            <span>×</span>
+                            <span class="pr-5">×</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">400万～500万円</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        <div class="flex justify-between w-full">
+                            <span class="pl-5">○</span>
+                            <span>×</span>
+                            <span>×</span>
+                            <span class="pr-5">×</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 年龄 -->
+
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800">年齢<br>申請の時点の年齢</td>
+                    <td class="px-4 py-3 text-gray-800">30歳未満</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">30～34歳</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">35～39歳</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+
+                <!-- 研究 -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">研究実績</td>
+                    <td class="px-4 py-3 text-gray-800">発明者として特許を受けた発明が１件以上</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700"></tr>
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">外国政府から補助金，競争的資金等を受けた研究に３回以上従事</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">学術論文データベースに登載されている学術雑誌に掲載された論文が３本以上</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700"></tr>
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">その他法務大臣が認める研究実績</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <!-- 资格 -->
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800">資格</td>
+                    <td class="px-4 py-3 text-gray-800">従事しようとする業務に関連する日本の国家資格（業務独占資格又は名称独占資格）を保有，<br>又はIT告示に定める試験に合格し若しくは資格を<b>1つ保有</b></td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">従事しようとする業務に関連する日本の国家資格（業務独占資格又は名称独占資格）を保有，<br>又はIT告示に定める試験に合格し若しくは資格を<b>複数保有</b></td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 特别 契约 -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 契約機関</td>
+                    <td class="px-4 py-3 text-gray-800">Ⅰ イノベーション促進支援措置を受けている</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700"></tr>
+                <td class="px-4 py-3 text-gray-800"></td>
+                <td class="px-4 py-3 text-gray-800">Ⅱ Ⅰに該当する企業であって，中小企業基本法に規定する中小企業者</td>
+                <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">契約機関が中小企業基本法に規定する中小企業者で，試験研究費及び開発費の合計金額が，<br>総収入金額から固定資産若しくは有価証券の譲渡による収入金額を控除した金額（売上高）の３％超</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+                <!-- 特别 表彰 -->
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 資格・表彰</td>
+                    <td class="px-4 py-3 text-gray-800">従事しようとする業務に関連する外国の資格，表彰等で法務大臣が認めるものを保有</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+                <!-- 特别 日本大学 -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 日本の大学</td>
+                    <td class="px-4 py-3 text-gray-800">日本の大学を卒業又は大学院の課程を修了</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 特别 日语能力 -->
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 日本語能力</td>
+                    <td class="px-4 py-3 text-gray-800">Ⅰ 日本語専攻で外国の大学を卒業又は日本語能力試験Ｎ１合格相当</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="15"/></td>
+                    <td class="px-4 py-3 text-center">15点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">Ⅱ 日本語能力試験Ｎ２合格相当 ※日本の大学を卒業又は大学院の課程を修了及びⅠに該当する者を除く</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 特别 project -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 プロジェクト</td>
+                    <td class="px-4 py-3 text-gray-800">各省が関与する成長分野の先端プロジェクトに従事</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 特别 毕业大学排名 -->
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 卒業大学</td>
+                    <td class=" text-gray-800">
+                        <div class="tooltip">以下のいずれかの大学を卒業（※）
+                            <span class="tooltiptext">
+                            日本の大学を卒業又は大学院の課程を修了と重複して加算することが認められています。
+                            </span>
+                        </div>
+                    <div class="px-4 py-3">
+                    Ⅰ 以下のランキング２つ以上において３００位以内の大学<br>
+                    ■ QS・ワールド・ユニバーシティ・ランキングス（クアクアレリ・シモンズ社（英国））<br>
+                    ■ THE・ワールド・ユニバーシティ・ランキングス（タイムズ社（英国））<br>
+                    ■ アカデミック・ランキング・オブ・ワールド・ユニバーシティズ（上海交通大学（中国））<br>
+                    </div>
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">Ⅱ 文部科学省が実施するスーパーグローバル大学創成支援事業（トップ型）において，<br>補助金の交付を受けている大学</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <tr class="bg-gray-50 dark:bg-gray-700">
+                    <td class="px-4 py-3 text-gray-800"></td>
+                    <td class="px-4 py-3 text-gray-800">Ⅱ 外務省が実施するイノベーティブ・アジア事業において，<br>「パートナー校」と して指定を受けている大学</td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="10"/></td>
+                    <td class="px-4 py-3 text-center">10点</td>
+                </tr>
+                <!-- 特别 研修修了 -->
+                <tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-4 py-3 text-gray-800">特別加算 研修修了</td>
+                    <td class="px-4 py-3 text-gray-800">
+                        外務省が実施するイノベーティブ・アジア事業の一環としてＪＩＣＡが実施する研修を修了したこと
+                        <a href="#kenshu" class="">（※详见下方注释）</a>
+
+                    </td>
+                    <td class="px-4 py-3 text-center"><input type="checkbox" data-score="5"/></td>
+                    <td class="px-4 py-3 text-center">5点</td>
+                </tr>
+                <!-- 其他数据按需添加 -->
+            </tbody>
+        </table>
+    </div>
+
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <h1 class="text-blue-800/100 px-4 py-3">注</h1>
+            <p  id="kenshu" class="text-blue-800/100 px-4 py-3">
+            1、イノベーティブ・アジア事業の一環としてＪＩＣＡが実施する研修であって，研修期間が１年以上のものを修了した者が対象となります。なお、ＪＩＣＡの研修修了証明書を提出した場合，学歴及び職歴等を証明する資料は、原則として提出する必要はありませんが（職歴）のポイントを加算する場合には、別途疎明資料が必要です。<br><br>
+
+            2、本邦の大学又は大学院の授業を利用して行われる研修に参加した場合、日本の大学を卒業又は大学院の課程を修了と重複して加算することは認められません。
+            </p>
+            <p class="text-blue-800/100 px-4 py-3">
+            *高度人材ポイント制 之中 高度専門・技術活動「高度専門職1号(ロ)」是与就职有关的，需要先获得「高度専門職1号」（给5年签），然后在此基础上持续3年，申请「高度専門職2号」（永驻=无期限再留许可）
+            </p>
+        </div>
+        <div class="flex justify-between overflow-x-auto relative shadow-md sm:rounded-lg">
+            <p id="kenshu" class="text-purple-800 px-4 py-3 font-bold">
+                总分（70分及格）：<span id="totalScore">0</span>
+            </p>
+
+            <a href="#top" class="bg-blue-500 hover:bg-blue-700 text-white text-base font-bold pt-3 px-2 rounded-xl ">
+                回到顶部
+            </a>
+
+        </div>
+
+        <script src="./countP/countP.js"></script>
+
+</body>
+</html>
